@@ -3,20 +3,24 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TaskSchema = new Schema({
-    name: {
+    title: {
         type: String,
         required: 'Entrez un nom de tâche'
     },
-    created_date: {
-        type: Date,
-        default: Date.now
+    responsible: {
+        type: String,
+        default: ''
     },
-    status: {
+    description: {
+        type: String,
+        default: ''
+    },
+    priority: {
         type: [{
             type: String,
-            enum: ['pending', 'ongoing', 'completed']
+            enum: ['low', 'medium', 'high']
         }],
-        default: ['pending']
+        default: ['low']
     }
 });
 
